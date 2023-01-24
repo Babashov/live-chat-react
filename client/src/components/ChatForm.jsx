@@ -1,11 +1,13 @@
 import styles from './styles.module.css'
 import {useState} from 'react'
+import { sendMessage } from '../providers/SocketProvider'
 
 function ChatForm() {
   const [message,setMessage] = useState('')
   const handleSubmit = (e)=>{
     e.preventDefault()
     console.log(message);
+    sendMessage(message)
 
     setMessage('')
   }
