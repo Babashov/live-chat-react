@@ -1,6 +1,6 @@
 import ChatList from './ChatList'
 import ChatForm from './ChatForm'
-import {init,subscribeChat} from '../providers/SocketProvider'
+import {init,subscribeChat,initialMessages} from '../providers/SocketProvider'
 import { useEffect } from 'react'
 import { useChat } from '../context/ChatContext'
 
@@ -11,6 +11,7 @@ function Container() {
     subscribeChat((message)=>{
       setMessages((prevState)=>[...prevState,{message}])
     })
+    initialMessages((messages)=>setMessages(messages))
   },[])
   return (
     <div>

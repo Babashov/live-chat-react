@@ -25,3 +25,11 @@ export const subscribeChat = (cb)=>{
         cb(message)
     })
 }
+
+export const initialMessages = (cb)=>{
+    if(!socket) return;
+    socket.on('message-list',(messages)=>{
+        console.log('Messages List: ', messages);
+        cb(messages)
+    })
+}
